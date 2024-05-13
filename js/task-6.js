@@ -43,5 +43,7 @@ function getRandomHexColor() {
     }
   });
 
-  destroyBtn.addEventListener("click", destroyBoxes);
+  destroyBtn.addEventListener("click", () => {
+    destroyBoxes();
+  });
 })();
