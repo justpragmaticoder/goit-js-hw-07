@@ -11,6 +11,8 @@ function getRandomHexColor() {
   const boxesContainer = document.querySelector("#boxes");
 
   function createBoxes(amount) {
+    const fragment = document.createDocumentFragment();
+
     for (let i = 0; i < amount; i++) {
       const box = document.createElement("div");
       /* Each next box will have size */
@@ -19,8 +21,10 @@ function getRandomHexColor() {
       box.style.width = `${size}px`;
       box.style.height = `${size}px`;
       box.style.backgroundColor = getRandomHexColor();
-      boxesContainer.appendChild(box);
+      fragment.appendChild(box);
     }
+
+    boxesContainer.appendChild(fragment);
   }
 
   function destroyBoxes() {
@@ -28,6 +32,8 @@ function getRandomHexColor() {
   }
 
   createBtn.addEventListener("click", () => {
+    destroyBoxes();
+
     const amount = input.value;
     if (amount >= 1 && amount <= 100) {
       createBoxes(amount);

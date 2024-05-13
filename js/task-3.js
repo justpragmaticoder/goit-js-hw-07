@@ -7,6 +7,6 @@ const DEFAULT_VALUE = 'Anonymous';
   nameInput.addEventListener("input", function () {
     const value = nameInput.value.trim();
 
-    nameOutput.textContent = value ?? DEFAULT_VALUE;
+    nameOutput.textContent = value || DEFAULT_VALUE;
   });
 })();
